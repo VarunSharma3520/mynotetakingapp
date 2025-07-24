@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/shared/Navbar";
 import Footer from "@/components/shared/Footer";
 import TrafficLightButton from "@/components/shared/TrafficLightButton";
+import "@excalidraw/excalidraw/index.css";
 
 const geistSans = Geist({
 	variable: "--font-geist-sans",

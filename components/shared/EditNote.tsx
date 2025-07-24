@@ -19,45 +19,53 @@ export default function EditNote() {
 	return (
 		<DropdownMenu>
 			<DropdownMenuTrigger asChild>
-				<Button variant="outline" className="bg-transparent border-0 shadow-none hover:bg-transparent rounded-full "><EllipsisVertical /></Button>
+				<Button
+					variant="outline"
+					className="bg-transparent border-0 shadow-none hover:bg-transparent rounded-full "
+				>
+					<EllipsisVertical />
+				</Button>
 			</DropdownMenuTrigger>
 			<DropdownMenuContent className="w-56" align="end">
-				<DropdownMenuLabel>My Account</DropdownMenuLabel>
+				<DropdownMenuLabel>This Note</DropdownMenuLabel>
 				<DropdownMenuGroup>
 					<DropdownMenuItem>
-						Profile
+						Share
 						<DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
 					</DropdownMenuItem>
 					<DropdownMenuItem>
-						Billing
+						Archive Note
 						<DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
 					</DropdownMenuItem>
 					<DropdownMenuItem>
-						Settings
+						Set Reminder
 						<DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
 					</DropdownMenuItem>
 					<DropdownMenuItem>
-						Keyboard shortcuts
+						Pin Note
 						<DropdownMenuShortcut>⌘K</DropdownMenuShortcut>
 					</DropdownMenuItem>
 				</DropdownMenuGroup>
 				<DropdownMenuSeparator />
 				<DropdownMenuGroup>
-					<DropdownMenuItem>Team</DropdownMenuItem>
+					<DropdownMenuItem>Edit Note</DropdownMenuItem>
 					<DropdownMenuSub>
-						<DropdownMenuSubTrigger>Invite users</DropdownMenuSubTrigger>
+						<DropdownMenuSubTrigger>Note Customize</DropdownMenuSubTrigger>
 						<DropdownMenuPortal>
 							<DropdownMenuSubContent>
-								<DropdownMenuItem>Email</DropdownMenuItem>
-								<DropdownMenuItem>Message</DropdownMenuItem>
+								<DropdownMenuItem>Background Color</DropdownMenuItem>
+								<DropdownMenuItem>Border Color</DropdownMenuItem>
+								<DropdownMenuItem>Title Color</DropdownMenuItem>
+								<DropdownMenuItem>Content Color</DropdownMenuItem>
+								<DropdownMenuItem>Footer Color</DropdownMenuItem>
 								<DropdownMenuSeparator />
-								<DropdownMenuItem>More...</DropdownMenuItem>
+								<DropdownMenuItem>Edit Position</DropdownMenuItem>
 							</DropdownMenuSubContent>
 						</DropdownMenuPortal>
 					</DropdownMenuSub>
 					<DropdownMenuItem>
-						New Team
-						<DropdownMenuShortcut>⌘+T</DropdownMenuShortcut>
+						Delete Note
+						<DropdownMenuShortcut>⌘+D</DropdownMenuShortcut>
 					</DropdownMenuItem>
 				</DropdownMenuGroup>
 				<DropdownMenuSeparator />
@@ -66,8 +74,8 @@ export default function EditNote() {
 				<DropdownMenuItem disabled>API</DropdownMenuItem>
 				<DropdownMenuSeparator />
 				<DropdownMenuItem>
-					Log out
-					<DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
+					Delete Note
+					<DropdownMenuShortcut>⇧⌘D</DropdownMenuShortcut>
 				</DropdownMenuItem>
 			</DropdownMenuContent>
 		</DropdownMenu>
