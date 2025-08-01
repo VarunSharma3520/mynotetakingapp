@@ -22,6 +22,7 @@ import {
 export default function NoteEditor() {
 	const [search, setSearch] = useState("");
 	const [content, setContent] = useState("");
+	const [sidebarSize, setSidebarSize] = useState(25);
 	const tags = ["Work", "Personal", "Ideas", "Goals"];
 	const handleDiaryWriting = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
 		setContent(e.target.value);
@@ -37,21 +38,28 @@ export default function NoteEditor() {
 		<div className="w-full min-h-screen bg-gray-100 dark:bg-neutral-900">
 			<ResizablePanelGroup direction="horizontal" className="min-h-screen">
 				{/* Sidebar */}
-				<ResizablePanel defaultSize={25} minSize={20} maxSize={35}>
+				<ResizablePanel
+					defaultSize={25}
+					minSize={5}
+					maxSize={35}
+					onResize={(size) => setSidebarSize(size)}
+				>
 					<div className="flex h-full flex-col border-r border-gray-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 p-4">
 						{/* Search + New Note in One Line */}
 						<div className="flex items-center gap-2 mb-6">
 							{/* Search Bar */}
-							<div className="flex flex-1 items-center gap-2 rounded-lg bg-gray-100 dark:bg-neutral-700 px-3 py-2 shadow-sm">
-								<Search className="h-4 w-4 text-gray-500 dark:text-gray-400" />
-								<input
-									type="text"
-									placeholder="Search..."
-									value={search}
-									onChange={(e) => setSearch(e.target.value)}
-									className="w-full bg-transparent text-sm outline-none dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400"
-								/>
-							</div>
+							{sidebarSize > 8 && (
+								<div className="flex flex-1 items-center gap-2 rounded-lg bg-gray-100 dark:bg-neutral-700 px-3 py-2 shadow-sm">
+									<Search className="h-4 w-4 text-gray-500 dark:text-gray-400" />
+									<input
+										type="text"
+										placeholder="Search..."
+										value={search}
+										onChange={(e) => setSearch(e.target.value)}
+										className="w-full bg-transparent text-sm outline-none dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400"
+									/>
+								</div>
+							)}
 
 							{/* New Note Button */}
 							<button className="flex items-center justify-center rounded-lg bg-blue-600 p-2 text-white hover:bg-blue-700 transition">
@@ -64,29 +72,32 @@ export default function NoteEditor() {
 							{navLinks.map((link, idx) => (
 								<button
 									key={idx}
-									className="flex w-full items-center gap-3 px-2 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-neutral-700 rounded-md"
+									className="flex items-center gap-3 px-2 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-neutral-700 rounded-md justify-center"
 								>
-									<link.icon className="h-4 w-4" /> {link.label}
+									<link.icon className="h-4 w-4" />
+									{sidebarSize > 8 && <span>{link.label}</span>}
 								</button>
 							))}
 						</div>
 
 						{/* Tags */}
-						<div className="mb-6">
-							<p className="text-xs font-semibold uppercase text-gray-500 dark:text-gray-400 mb-2">
-								Tags
-							</p>
-							<div className="flex flex-wrap gap-2">
-								{tags.map((tag, idx) => (
-									<span
-										key={idx}
-										className="rounded-full bg-gray-200 dark:bg-neutral-700 px-3 py-1 text-xs text-gray-700 dark:text-gray-300 cursor-pointer hover:bg-gray-300 dark:hover:bg-neutral-600"
-									>
-										{tag}
-									</span>
-								))}
+						{sidebarSize > 8 && (
+							<div className="mb-6">
+								<p className="text-xs font-semibold uppercase text-gray-500 dark:text-gray-400 mb-2">
+									Tags
+								</p>
+								<div className="flex flex-wrap gap-2">
+									{tags.map((tag, idx) => (
+										<span
+											key={idx}
+											className="rounded-full bg-gray-200 dark:bg-neutral-700 px-3 py-1 text-xs text-gray-700 dark:text-gray-300 cursor-pointer hover:bg-gray-300 dark:hover:bg-neutral-600"
+										>
+											{tag}
+										</span>
+									))}
+								</div>
 							</div>
-						</div>
+						)}
 					</div>
 				</ResizablePanel>
 
