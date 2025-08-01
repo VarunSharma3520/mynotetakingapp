@@ -18,6 +18,9 @@ export default function StickyNoteCard({
 	description,
 	content,
 	footer,
+	image,
+	video,
+	audio,
 	cardBackgroundColor,
 	cardBorderColor,
 	cardTitleColor,
@@ -37,7 +40,7 @@ export default function StickyNoteCard({
 					</CardDescription>
 					<CardAction onClick={() => console.log("Card Action Clicked")}>
 						<EditNote />
-					</CardAction>
+					</CardAction>	
 				</CardHeader>
 				<CardContent>
 					<p className={`${cardContentColor} line-clamp-3`}>{content}</p>

@@ -50,6 +50,7 @@ export default function EditNote() {
 				<DropdownMenuGroup>
 					<DropdownMenuItem>Edit Note</DropdownMenuItem>
 					<DropdownMenuSub>
+						<DropdownMenuSeparator />
 						<DropdownMenuSubTrigger>Note Customize</DropdownMenuSubTrigger>
 						<DropdownMenuPortal>
 							<DropdownMenuSubContent>
@@ -63,15 +64,20 @@ export default function EditNote() {
 							</DropdownMenuSubContent>
 						</DropdownMenuPortal>
 					</DropdownMenuSub>
-					<DropdownMenuItem>
-						Delete Note
-						<DropdownMenuShortcut>⌘+D</DropdownMenuShortcut>
-					</DropdownMenuItem>
 				</DropdownMenuGroup>
-				<DropdownMenuSeparator />
-				<DropdownMenuItem>GitHub</DropdownMenuItem>
-				<DropdownMenuItem>Support</DropdownMenuItem>
-				<DropdownMenuItem disabled>API</DropdownMenuItem>
+				<DropdownMenuSub>
+					<DropdownMenuSubTrigger>Tag</DropdownMenuSubTrigger>
+					<DropdownMenuPortal>
+						<DropdownMenuSubContent>
+							<DropdownMenuItem>Code</DropdownMenuItem>
+							<DropdownMenuItem>Note</DropdownMenuItem>
+							<DropdownMenuItem>Research</DropdownMenuItem>
+							<DropdownMenuItem>Life</DropdownMenuItem>
+							<DropdownMenuItem>Mine</DropdownMenuItem>
+						</DropdownMenuSubContent>
+					</DropdownMenuPortal>
+				</DropdownMenuSub>
+				<DropdownMenuItem>Set Password</DropdownMenuItem>
 				<DropdownMenuSeparator />
 				<DropdownMenuItem>
 					Delete Note

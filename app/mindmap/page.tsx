@@ -9,7 +9,7 @@ const Excalidraw = dynamic(
 );
 
 export default function Minimap() {
-  	// eslint-disable-next-line @typescript-eslint/no-explicit-any
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	const handleChange = (elements: any, appState: any, files: any) => {
 		console.log("Elements:", elements);
 		console.log("App State:", appState);
@@ -27,7 +27,7 @@ export default function Minimap() {
 					onChange={handleChange}
 					initialData={{
 						elements: [],
-						appState: { viewBackgroundColor: "#ffffff", gridModeEnabled: true, openSidebar: false },
+						appState: { viewBackgroundColor: "#ffffff", gridModeEnabled: true },
 						files: {},
 					}}
 				/>

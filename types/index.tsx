@@ -3,12 +3,21 @@ type StickyNoteCardProps = {
 	description?: string;
 	content?: string;
 	footer?: string;
+	image?: string;
+	video?: string;
+	audio?: string;
 	cardBackgroundColor?: string;
 	cardBorderColor?: string;
 	cardTitleColor?: string;
 	cardContentColor?: string;
 	cardFooterColor?: string;
-	cardPosition?:string
+	cardPosition?: string;
 };
 
-export type { StickyNoteCardProps };
+type SettingCardProps = {
+	title: string;
+	description: string;
+	action: React.ReactNode;
+};
+
+export type { StickyNoteCardProps, SettingCardProps };
