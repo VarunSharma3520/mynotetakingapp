@@ -6,6 +6,8 @@ import {
 	ResizablePanel,
 	ResizablePanelGroup,
 } from "@/components/ui/resizable";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import {
 	Notebook,
 	Clock,
@@ -19,9 +21,11 @@ import {
 
 export default function NoteEditor() {
 	const [search, setSearch] = useState("");
-
+	const [content, setContent] = useState("");
 	const tags = ["Work", "Personal", "Ideas", "Goals"];
-
+	const handleDiaryWriting = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+		setContent(e.target.value);
+	};
 	const navLinks = [
 		{ label: "All Notes", icon: Notebook },
 		{ label: "Today", icon: Calendar },
@@ -83,16 +87,6 @@ export default function NoteEditor() {
 								))}
 							</div>
 						</div>
-
-						{/* Utility Links */}
-						<div className="mt-auto flex flex-col gap-2">
-							<button className="flex items-center gap-3 px-2 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-neutral-700 rounded-md">
-								<Settings className="h-4 w-4" /> Settings
-							</button>
-							<button className="flex items-center gap-3 px-2 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-neutral-700 rounded-md">
-								<LogOut className="h-4 w-4" /> Logout
-							</button>
-						</div>
 					</div>
 				</ResizablePanel>
 
@@ -104,10 +98,24 @@ export default function NoteEditor() {
 						<h1 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
 							How Was Your Day ?
 						</h1>
-						<textarea
-							placeholder="Start writing your thoughts..."
-							className="w-full h-[85vh] p-4 rounded-lg bg-gray-100 dark:bg-neutral-800 border border-gray-300 dark:border-neutral-700 text-gray-800 dark:text-gray-100 resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
-						/>
+						<div className="flex gap-6 justify-between dark:bg-neutral-900 min-h-screen">
+							<div className="flex w-full max-w-7xl mx-auto gap-6 rounded-xl dark:bg-neutral-800">
+								{/* Left: Textarea */}
+								<textarea
+									placeholder="Start writing your thoughts..."
+									onChange={handleDiaryWriting}
+									value={content}
+									className="w-1/2 h-[70vh] p-4 rounded-lg  border border-gray-300 dark:border-neutral-700 text-gray-800 dark:text-gray-100 resize-none focus:outline-none focus:ring-2 focus:ring-transparent shadow-inner custom-scrollbar"
+								/>
+
+								{/* Right: Markdown Preview */}
+								<div className="w-1/2 h-[70vh] p-6 rounded-lg border border-gray-300 dark:border-neutral-700 text-gray-800 dark:text-gray-100 overflow-y-auto prose dark:prose-invert custom-scrollbar markdown">
+									<ReactMarkdown remarkPlugins={[remarkGfm]}>
+										{content || "👈 Start typing to preview your note here..."}
+									</ReactMarkdown>
+								</div>
+							</div>
+						</div>
 					</div>
 				</ResizablePanel>
 			</ResizablePanelGroup>

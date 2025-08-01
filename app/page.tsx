@@ -13,14 +13,7 @@ export default function Home() {
 - Headings (H1–H6)
 - Paragraphs with *italic* and **bold** text
 - Blockquotes
-- Inline  and code blocks
-- Task lists
-- Links
-- Tables
 
----
-
-### 🔗 Link Example
 [Visit React Docs](https://reactjs.org)
 
 ---
