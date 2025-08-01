@@ -12,12 +12,10 @@ import {
 	Notebook,
 	Clock,
 	Calendar,
-	Settings,
-	LogOut,
-	Plus,
 	Search,
 	Heart,
 } from "lucide-react";
+import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
 
 export default function NoteEditor() {
 	const [search, setSearch] = useState("");
@@ -30,12 +28,35 @@ export default function NoteEditor() {
 	const navLinks = [
 		{ label: "All Notes", icon: Notebook },
 		{ label: "Today", icon: Calendar },
-		{ label: "Fav Diary Days", icon: Heart },
+		{ label: "Favorite Diary Days", icon: Heart },
 		{ label: "Recent Days", icon: Clock },
 	];
 
+	const words = [
+		{
+			text: "How",
+			className: "text-2xl",
+		},
+		{
+			text: "was",
+			className: "text-2xl",
+		},
+		{
+			text: "your",
+			className: "text-2xl",
+		},
+		{
+			text: "day,",
+			className: "text-2xl",
+		},
+		{
+			text: "Ladao.......?",
+			className: "text-blue-600 dark:text-blue-600 text-2xl",
+		},
+	];
+
 	return (
-		<div className="w-full min-h-screen bg-gray-100 dark:bg-neutral-900">
+		<div className="w-full min-h-screen bg-white dark:bg-neutral-900">
 			<ResizablePanelGroup direction="horizontal" className="min-h-screen">
 				{/* Sidebar */}
 				<ResizablePanel
@@ -62,9 +83,9 @@ export default function NoteEditor() {
 							)}
 
 							{/* New Note Button */}
-							<button className="flex items-center justify-center rounded-lg bg-blue-600 p-2 text-white hover:bg-blue-700 transition">
+							{/* <button className="flex items-center justify-center rounded-lg bg-blue-600 p-2 text-white hover:bg-blue-700 transition">
 								<Plus className="h-5 w-5" />
-							</button>
+							</button> */}
 						</div>
 
 						{/* Navigation */}
@@ -72,7 +93,7 @@ export default function NoteEditor() {
 							{navLinks.map((link, idx) => (
 								<button
 									key={idx}
-									className="flex items-center gap-3 px-2 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-neutral-700 rounded-md justify-center"
+									className="flex w-full items-center gap-3 px-2 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-neutral-700 rounded-md justify-start"
 								>
 									<link.icon className="h-4 w-4" />
 									{sidebarSize > 8 && <span>{link.label}</span>}
@@ -106,9 +127,7 @@ export default function NoteEditor() {
 				{/* Main Editor */}
 				<ResizablePanel defaultSize={75}>
 					<div className="h-full p-6">
-						<h1 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
-							How Was Your Day ?
-						</h1>
+						<TypewriterEffectSmooth className="-mt-6 -mb-0.5" cursorClassName="h-2" words={words} />
 						<div className="flex gap-6 justify-between dark:bg-neutral-900 min-h-screen">
 							<div className="flex w-full max-w-7xl mx-auto gap-6 rounded-xl dark:bg-neutral-800">
 								{/* Left: Textarea */}
