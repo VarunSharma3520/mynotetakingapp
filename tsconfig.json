@@ -15,12 +15,12 @@
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve", // ✅ Change from "preserve" to "react-jsx"
+    "jsx": "preserve", 
     "incremental": true,
-    "jsxImportSource": "react", // ✅ Add this
+    "jsxImportSource": "react",
     "types": [
       "react"
-    ], // ✅ Explicitly include React types
+    ],
     "plugins": [
       {
         "name": "next"

@@ -1,5 +1,6 @@
 "use client";
-import { X, Minus, Plus } from "lucide-react";
+import { X, Plus } from "lucide-react";
+import ConnectServer from "../others/ConnectServer";
 
 export default function TrafficLightButton() {
 	return (
@@ -20,11 +21,10 @@ export default function TrafficLightButton() {
 				{/* Minimize (Yellow) */}
 				<button
 					onClick={() => {
-						alert("Minimize feature coming soon");
 					}}
 					className="group relative flex h-3 w-3 items-center justify-center rounded-full bg-yellow-500"
 				>
-					<Minus className="absolute hidden h-2 w-2 text-white group-hover:block" />
+					<ConnectServer />
 				</button>
 
 				{/* Maximize (Green) */}
