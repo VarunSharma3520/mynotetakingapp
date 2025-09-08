@@ -15,8 +15,8 @@ export default function NotFound() {
           <Button variant="outline" onClick={() => router.push("/dashboard")}>
             Dashboard
           </Button>
-          <Button variant="outline" onClick={() => router.push("/noteEditor")}>
-            Note Editor
+          <Button variant="outline" onClick={() => router.push("/mydiary")}>
+            My Diary
           </Button>
           <Button variant="outline" onClick={() => router.push("/profile")}>
             Profile
