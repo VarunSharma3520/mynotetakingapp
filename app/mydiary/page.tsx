@@ -397,6 +397,7 @@ export default function NoteEditor() {
 			}
 
 			setCurrentDate(dateStr);
+		// eslint-disable-next-line @typescript-eslint/no-explicit-any
 		} catch (err: any) {
 			if (date && err?.response?.status === 404) {
 				setContent("");
@@ -444,6 +445,7 @@ export default function NoteEditor() {
 			window.setTimeout(() => {
 				if (!savingRef.current) setStatus(null);
 			}, 2500);
+		// eslint-disable-next-line @typescript-eslint/no-explicit-any
 		} catch (err: any) {
 			if (err?.code === "ERR_CANCELED") {
 				savingRef.current = false;
@@ -472,6 +474,7 @@ export default function NoteEditor() {
 				res.status < 300 &&
 				Array.isArray(res.data?.data)
 			) {
+				// eslint-disable-next-line @typescript-eslint/no-explicit-any
 				const notes: RecentNote[] = res.data.data.map((item: any) => {
 					const date = item.title ?? item.date ?? "";
 					const c: string = item.content ?? "";
@@ -498,6 +501,7 @@ export default function NoteEditor() {
 			setLoadingAll(true);
 			const base = getBase();
 			const url = `${base}/api/v1/diary`;
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
 			const params: any = { page: p, limit };
 			if (q && q.trim().length) params.q = q.trim();
 
@@ -513,6 +517,7 @@ export default function NoteEditor() {
 				res.status < 300 &&
 				Array.isArray(res.data?.data)
 			) {
+				// eslint-disable-next-line @typescript-eslint/no-explicit-any
 				const notes: RecentNote[] = res.data.data.map((item: any) => {
 					const date = item.title ?? item.date ?? "";
 					const c: string = item.content ?? "";
